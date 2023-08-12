@@ -12,9 +12,6 @@ namespace SCPTeamStatsv2
         [Description("How many seconds between each hint")]
         public int DisplayRefreshRate { get; set; } = 2;
 
-        [Description("Format of text")]
-        public string SCPStatString { get; set; } = "<color=red>{SCP}</color> <color=green>{HEALTH}HP</color> <color=#5a97fa>{HUME}AP</color>";
-
         [Description("Text size (PERCENTAGE NOT PIXEL)")]
         public int textSize { get; set; } = 20;
     }
