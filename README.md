@@ -1,3 +1,6 @@
+# Change the text size in the config if it doesn't show on the screen for some people
+
 # SCP-Team-Stats
 
-Shows SCPs their teammates health and humeshield, or pc level
+Light plugin that shows SCPs their teammates health and humeshield, or pc level at the top of your screen
+![Screenshot (4174)](https://github.com/morgana-x/SCP-Team-Stats/assets/89588301/762e858c-8ef6-4ad6-838c-f6ed974a309e)
