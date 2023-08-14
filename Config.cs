@@ -13,6 +13,6 @@ namespace SCPTeamStatsv2
         public int DisplayRefreshRate { get; set; } = 2;
 
         [Description("Text size (PERCENTAGE NOT PIXEL)")]
-        public int textSize { get; set; } = 20;
+        public int textSize { get; set; } = 65;
     }
 }
