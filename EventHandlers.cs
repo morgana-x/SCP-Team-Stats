@@ -25,6 +25,10 @@ namespace SCPTeamStatsv2
             List<Player> scps = new List<Player>();
             foreach (Player pl in Player.List)
             {
+                if (Plugin.Instance.Config.hideNPCs && pl.IsNPC)
+                {
+                    continue;
+                }
                 if (pl.IsScp && (pl.Role.Type != RoleTypeId.Scp0492))
                 {
                     scps.Add(pl);
@@ -39,6 +43,11 @@ namespace SCPTeamStatsv2
         public string formatDisplayExperiment(List<Player> scps)
         {
             string display = string.Empty;
+
+            if (Plugin.Instance.Config.bottomDisplay)
+            {
+                display = display + new string('\n', 18);
+            }
 
             display = display + "<size=" + Plugin.Instance.Config.textSize.ToString() + "%>";
 
@@ -57,9 +66,10 @@ namespace SCPTeamStatsv2
             }
 
 
-
-            display = display + new string('\n', 51);
-
+            if (!Plugin.Instance.Config.bottomDisplay)
+            {
+                display = display + new string('\n', 51);
+            }
             return display;
         }
         public IEnumerator<float> refreshDisplay()
@@ -75,6 +85,10 @@ namespace SCPTeamStatsv2
                 foreach (Player pl in Player.List)
                 {
                     if (!pl.IsScp)
+                    {
+                        continue;
+                    }
+                    if (pl.IsNPC)
                     {
                         continue;
                     }
