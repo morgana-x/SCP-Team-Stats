@@ -14,9 +14,7 @@ using PluginAPI.Roles;
 using UnityEngine;
 using Exiled.API.Extensions;
 using MEC;
-using SCPTeamStatsv2;
-
-namespace SCPTeamStatsv2
+namespace SCP_Team_Stats
 {
     public sealed class Plugin : Plugin<Config>
     {
@@ -30,7 +28,7 @@ namespace SCPTeamStatsv2
 
         private EventHandlers _handlers;
 
-  
+        public CoroutineHandle displayHandle;
 
         public override void OnEnabled()
         {
@@ -53,24 +51,15 @@ namespace SCPTeamStatsv2
         private void RegisterEvents()
         {
             _handlers = new EventHandlers();
-            Exiled.Events.Handlers.Server.RoundStarted += _handlers.RoundStarted;
-            //Exiled.Events.Handlers.Server.EndingRound += _handlers.RoundEnding;
-            Exiled.Events.Handlers.Server.RestartingRound += _handlers.RoundRestarting;
-            Exiled.Events.Handlers.Server.WaitingForPlayers += _handlers.WaitingForPlayers;
-            if (Exiled.API.Features.Round.IsStarted && !Exiled.API.Features.Round.IsEnded) 
-            {
-                _handlers.StartDisplay();
-            }
+            Log.Debug("Starting coroutine");
+            displayHandle = Timing.RunCoroutine(_handlers.refreshDisplay());
         }
 
         private void UnregisterEvents()
         {
-            Exiled.Events.Handlers.Server.RoundStarted -= _handlers.RoundStarted;
-           // Exiled.Events.Handlers.Server.EndingRound -= _handlers.RoundEnding;
-            Exiled.Events.Handlers.Server.RestartingRound -= _handlers.RoundRestarting;
-            Exiled.Events.Handlers.Server.WaitingForPlayers -= _handlers.WaitingForPlayers;
-            _handlers.KillDisplay(); // Just Incase
+            Timing.KillCoroutines(displayHandle);
             _handlers = null;
+            Log.Debug("Killed coroutine");
         }
     }
 }
