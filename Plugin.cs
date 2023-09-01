@@ -14,9 +14,7 @@ using PluginAPI.Roles;
 using UnityEngine;
 using Exiled.API.Extensions;
 using MEC;
-using SCPTeamStatsv2;
-
-namespace SCPTeamStatsv2
+namespace SCP_Team_Stats
 {
     public sealed class Plugin : Plugin<Config>
     {
