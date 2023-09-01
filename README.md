@@ -1,6 +1,3 @@
-# Notice
-For some reason uploaded files aren't uploading properlly so there is a mismatch between the latest dll and the source code
-I'm very confused myself 😔
 # SCP-Team-Stats
 
 Light plugin that shows SCPs their teammates health and humeshield, or pc level at the top of your screen
