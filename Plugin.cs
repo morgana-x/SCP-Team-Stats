@@ -54,7 +54,7 @@ namespace SCPTeamStatsv2
         {
             _handlers = new EventHandlers();
             Exiled.Events.Handlers.Server.RoundStarted += _handlers.RoundStarted;
-            //Exiled.Events.Handlers.Server.EndingRound += _handlers.RoundEnding;
+            Exiled.Events.Handlers.Server.RoundEnded += _handlers.RoundEnded;
             Exiled.Events.Handlers.Server.RestartingRound += _handlers.RoundRestarting;
             Exiled.Events.Handlers.Server.WaitingForPlayers += _handlers.WaitingForPlayers;
             if (Exiled.API.Features.Round.IsStarted && !Exiled.API.Features.Round.IsEnded) 
@@ -66,7 +66,7 @@ namespace SCPTeamStatsv2
         private void UnregisterEvents()
         {
             Exiled.Events.Handlers.Server.RoundStarted -= _handlers.RoundStarted;
-           // Exiled.Events.Handlers.Server.EndingRound -= _handlers.RoundEnding;
+            Exiled.Events.Handlers.Server.RoundEnded -= _handlers.RoundEnded;
             Exiled.Events.Handlers.Server.RestartingRound -= _handlers.RoundRestarting;
             Exiled.Events.Handlers.Server.WaitingForPlayers -= _handlers.WaitingForPlayers;
             _handlers.KillDisplay(); // Just Incase

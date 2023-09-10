@@ -63,6 +63,10 @@ namespace SCPTeamStatsv2
             }
             return new List<int>(){engagedGenerators, activeGenerators};
         }
+        public void RoundEnded(RoundEndedEventArgs ev)
+        {
+            Timing.KillCoroutines(displayHandle);
+        }
         public string formatDisplayExperiment(List<Player> scps)
         {
             string display = string.Empty;
