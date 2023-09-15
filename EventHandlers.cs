@@ -85,7 +85,13 @@ namespace SCPTeamStatsv2
                 string cool = "<color=red>" + "SCP-" + pl.Role.Type.ToString().Replace("Scp", string.Empty) + "</color> ";
 
                 if (pl.Role.Type != RoleTypeId.Scp079)
-                    cool = cool + "<color=green>" + Math.Ceiling(pl.Health).ToString() + "</color> " + "<color=#5a97fa>" + Math.Ceiling(pl.HumeShield).ToString() + "</color>";
+                {
+                    cool = cool + "<color=green>" + Math.Ceiling(pl.Health).ToString() + "</color>";
+                    if (pl.HumeShield >0)
+                        cool = cool + " <color=#5a97fa>" + Math.Ceiling(pl.HumeShield).ToString() + "</color>";
+                    if (pl.ArtificialHealth > 0)
+                        cool = cool + " <color=yellow> " + Math.Ceiling(pl.ArtificialHealth).ToString() + "</color>";
+                }
                 else
                 {
                     // todo: Optimise whatever the heck this is
