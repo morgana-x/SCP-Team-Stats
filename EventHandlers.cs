@@ -22,6 +22,7 @@ namespace SCPTeamStatsv2
     {
 
         public CoroutineHandle displayHandle;
+        //public Experimental experimentalStuff = new Experimental();
         public List<Player> getSCPs()
         {
             List<Player> scps = new List<Player>();
@@ -140,6 +141,16 @@ namespace SCPTeamStatsv2
         {
             while (true)
             {
+                /*try
+                {
+                    //Log.Debug("Showing team pos for teams");
+                    experimentalStuff.showTeammates(Team.FoundationForces);
+                    experimentalStuff.showTeammates(Team.ChaosInsurgency);
+                }
+                catch(Exception e) 
+                {
+                    Log.Error(e);
+                }*/
                 List<Player> scps = getSCPs();
 
                 if (scps.Count <= 0)
